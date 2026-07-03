@@ -1,0 +1,1609 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WhatsApp call-list — Convertly</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; background: #f4f5f7; color: #111; }
+  header { position: sticky; top: 0; background: #128C7E; color: #fff; padding: 14px 16px; }
+  header h1 { font-size: 17px; margin: 0; }
+  header p { margin: 4px 0 0; font-size: 13px; opacity: .9; }
+  ul { list-style: none; margin: 0; padding: 12px; display: grid; gap: 10px; }
+  .card { background: #fff; border-radius: 12px; padding: 14px; box-shadow: 0 1px 3px rgba(0,0,0,.08); position: relative; }
+  .card.done { opacity: .45; }
+  .done { position: absolute; top: 12px; right: 12px; font-size: 12px; color: #666; }
+  .name { font-weight: 650; font-size: 16px; padding-right: 60px; }
+  .meta { color: #555; font-size: 13px; margin-top: 2px; text-transform: capitalize; }
+  .addr { color: #777; font-size: 12px; margin-top: 4px; }
+  .phone { font-size: 14px; margin-top: 6px; }
+  .actions { display: flex; gap: 8px; margin-top: 12px; }
+  .actions a { flex: 1; text-align: center; padding: 11px; border-radius: 9px; text-decoration: none; font-weight: 600; font-size: 14px; }
+  .wa { background: #25D366; color: #fff; }
+  .call { background: #eef0f2; color: #111; }
+  .nowa { flex: 1; text-align: center; padding: 11px; color: #999; font-size: 13px; }
+  h2 { font-size: 14px; margin: 16px 12px 0; color: #555; text-transform: uppercase; letter-spacing: .04em; }
+  #today .card { border: 2px solid #128C7E; }
+  #today:empty + h2, #today:empty { display: none; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #111; color: #eee; } .card { background: #1d1d1f; box-shadow: none; }
+    .meta,.addr { color: #aaa; } .call { background: #2a2a2c; color: #eee; }
+  }
+</style></head>
+<body>
+<header>
+  <h1>Convertly — WhatsApp call-list</h1>
+  <p>140 businesses with no website. Do the "Today's 10" below (~15 min), tick each one done. Message is pre-typed, just hit send. (Updated 2026-07-03)</p>
+</header>
+<h2>Today's 10</h2>
+<ul id="today"></ul>
+<h2>Everyone else</h2>
+<ul id="rest">
+<li class="card" data-id="NXTCUT|+27 81 491 5700">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">NXTCUT</div>
+      <div class="meta">hairdresser · Cape Town, South Africa</div>
+      <div class="addr">5 Pearce Road</div>
+      <div class="phone">+27 81 491 5700</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27814915700?text=Hi%2C%20is%20this%20NXTCUT%3F%20I%20came%20across%20your%20salon%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 81 491 5700">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Salon Viviane La Patrona|+27 78 708 6712">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Salon Viviane La Patrona</div>
+      <div class="meta">hairdresser · Cape Town</div>
+      <div class="addr">Main Road, Cape Town</div>
+      <div class="phone">+27 78 708 6712</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27787086712?text=Hi%2C%20is%20this%20Salon%20Viviane%20La%20Patrona%3F%20I%20came%20across%20your%20salon%20in%20Cape%20Town%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 78 708 6712">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Urban Men|+27 21 820 4343">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Urban Men</div>
+      <div class="meta">hairdresser · Cape Town, South Africa</div>
+      <div class="addr">7 Jarvis Street</div>
+      <div class="phone">+27 21 820 4343</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27218204343?text=Hi%2C%20is%20this%20Urban%20Men%3F%20I%20came%20across%20your%20salon%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 820 4343">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="The Cutting Room|+27 21 712 2284">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">The Cutting Room</div>
+      <div class="meta">hairdresser · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 712 2284</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27217122284?text=Hi%2C%20is%20this%20The%20Cutting%20Room%3F%20I%20came%20across%20your%20salon%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 712 2284">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Unisex Hyper Cut|+2721 595 1060">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Unisex Hyper Cut</div>
+      <div class="meta">hairdresser · Cape Town, South Africa</div>
+      
+      <div class="phone">+2721 595 1060</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27215951060?text=Hi%2C%20is%20this%20Unisex%20Hyper%20Cut%3F%20I%20came%20across%20your%20salon%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+2721 595 1060">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Hypercut Men&#39;s Grooming Studio|+2721 595 0166">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Hypercut Men&#39;s Grooming Studio</div>
+      <div class="meta">hairdresser · Cape Town, South Africa</div>
+      
+      <div class="phone">+2721 595 0166</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27215950166?text=Hi%2C%20is%20this%20Hypercut%20Men's%20Grooming%20Studio%3F%20I%20came%20across%20your%20salon%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+2721 595 0166">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Louisa &amp; Friends Hair Designers|+27 21 439 6337">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Louisa &amp; Friends Hair Designers</div>
+      <div class="meta">hairdresser · Cape Town, South Africa</div>
+      <div class="addr">Regent Road</div>
+      <div class="phone">+27 21 439 6337</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214396337?text=Hi%2C%20is%20this%20Louisa%20%26%20Friends%20Hair%20Designers%3F%20I%20came%20across%20your%20salon%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 439 6337">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Kavanagh&#39;s Hair &amp; Beauty|+27 21 434 0206">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Kavanagh&#39;s Hair &amp; Beauty</div>
+      <div class="meta">hairdresser · Cape Town, South Africa</div>
+      <div class="addr">Regent Road</div>
+      <div class="phone">+27 21 434 0206</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214340206?text=Hi%2C%20is%20this%20Kavanagh's%20Hair%20%26%20Beauty%3F%20I%20came%20across%20your%20salon%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 434 0206">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Reds|+27 21 434 0781">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Reds</div>
+      <div class="meta">hairdresser · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 434 0781</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214340781?text=Hi%2C%20is%20this%20Reds%3F%20I%20came%20across%20your%20salon%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 434 0781">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Valencia&#39;s Hair Salon|+27 215513027">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Valencia&#39;s Hair Salon</div>
+      <div class="meta">hairdresser · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 215513027</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27215513027?text=Hi%2C%20is%20this%20Valencia's%20Hair%20Salon%3F%20I%20came%20across%20your%20salon%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 215513027">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Camero Hair and Beauty Salon|+27 21 5521833">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Camero Hair and Beauty Salon</div>
+      <div class="meta">hairdresser · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 5521833</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27215521833?text=Hi%2C%20is%20this%20Camero%20Hair%20and%20Beauty%20Salon%3F%20I%20came%20across%20your%20salon%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 5521833">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Arisco Trading CC|+27 215518987">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Arisco Trading CC</div>
+      <div class="meta">hairdresser · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 215518987</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27215518987?text=Hi%2C%20is%20this%20Arisco%20Trading%20CC%3F%20I%20came%20across%20your%20salon%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 215518987">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Nice Nails &amp; Beauty Parlour|+27 68 668 3013">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Nice Nails &amp; Beauty Parlour</div>
+      <div class="meta">hairdresser · Pretoria, South Africa</div>
+      <div class="addr">201 Corobay Avenue</div>
+      <div class="phone">+27 68 668 3013</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27686683013?text=Hi%2C%20is%20this%20Nice%20Nails%20%26%20Beauty%20Parlour%3F%20I%20came%20across%20your%20salon%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 68 668 3013">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Babochka Hair and Beauty|+27847144426">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Babochka Hair and Beauty</div>
+      <div class="meta">hairdresser · Pretoria</div>
+      <div class="addr">200 Swartrenoster Street, Pretoria</div>
+      <div class="phone">+27847144426</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27847144426?text=Hi%2C%20is%20this%20Babochka%20Hair%20and%20Beauty%3F%20I%20came%20across%20your%20salon%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27847144426">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="We Do Hair|+27 837673229">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">We Do Hair</div>
+      <div class="meta">hairdresser · Pretoria, South Africa</div>
+      <div class="addr">328 Piet Hugo Street</div>
+      <div class="phone">+27 837673229</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27837673229?text=Hi%2C%20is%20this%20We%20Do%20Hair%3F%20I%20came%20across%20your%20salon%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 837673229">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Exclusive Virgin Hair|+27 12 943 6240">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Exclusive Virgin Hair</div>
+      <div class="meta">hairdresser · Pretoria</div>
+      <div class="addr">Pretoria</div>
+      <div class="phone">+27 12 943 6240</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27129436240?text=Hi%2C%20is%20this%20Exclusive%20Virgin%20Hair%3F%20I%20came%20across%20your%20salon%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 943 6240">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Joyceline|+27 796019063">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Joyceline</div>
+      <div class="meta">hairdresser · Pretoria, South Africa</div>
+      
+      <div class="phone">+27 796019063</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27796019063?text=Hi%2C%20is%20this%20Joyceline%3F%20I%20came%20across%20your%20salon%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 796019063">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Phree Edge|+27 71 431 5726">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Phree Edge</div>
+      <div class="meta">hairdresser · Johannesburg, South Africa</div>
+      
+      <div class="phone">+27 71 431 5726</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27714315726?text=Hi%2C%20is%20this%20Phree%20Edge%3F%20I%20came%20across%20your%20salon%20in%20Johannesburg%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 71 431 5726">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Young House Barber|+27 84 843 3680">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Young House Barber</div>
+      <div class="meta">hairdresser · Johannesburg, South Africa</div>
+      
+      <div class="phone">+27 84 843 3680</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27848433680?text=Hi%2C%20is%20this%20Young%20House%20Barber%3F%20I%20came%20across%20your%20salon%20in%20Johannesburg%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 84 843 3680">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="sallys beauty institute|+27 11 475 8359">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">sallys beauty institute</div>
+      <div class="meta">hairdresser · roodepoort</div>
+      <div class="addr">988 Geldenhuys Street, roodepoort</div>
+      <div class="phone">+27 11 475 8359</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27114758359?text=Hi%2C%20is%20this%20sallys%20beauty%20institute%3F%20I%20came%20across%20your%20salon%20in%20roodepoort%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20salons%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 11 475 8359">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Keys on Davenport|+27 73 237 9507">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Keys on Davenport</div>
+      <div class="meta">restaurant · Durban, South Africa</div>
+      
+      <div class="phone">+27 73 237 9507</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27732379507?text=Hi%2C%20is%20this%20Keys%20on%20Davenport%3F%20I%20came%20across%20your%20restaurant%20in%20Durban%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 73 237 9507">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Al-Khair|+27 301 307 5187">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Al-Khair</div>
+      <div class="meta">restaurant · Durban, South Africa</div>
+      <div class="addr">93 Bertha Mkhize Street</div>
+      <div class="phone">+27 301 307 5187</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/273013075187?text=Hi%2C%20is%20this%20Al-Khair%3F%20I%20came%20across%20your%20restaurant%20in%20Durban%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 301 307 5187">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Garden Grill Restaurant|+27 31 337 2231">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Garden Grill Restaurant</div>
+      <div class="meta">restaurant · Durban</div>
+      <div class="addr">73 O.R. Tambo Parade, Durban</div>
+      <div class="phone">+27 31 337 2231</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27313372231?text=Hi%2C%20is%20this%20Garden%20Grill%20Restaurant%3F%20I%20came%20across%20your%20restaurant%20in%20Durban%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 31 337 2231">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Chicken Tikka Palace|+27 31 337 9460">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Chicken Tikka Palace</div>
+      <div class="meta">restaurant · Durban</div>
+      <div class="addr">4 Doctor Pixley Kaseme Street, Durban</div>
+      <div class="phone">+27 31 337 9460</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27313379460?text=Hi%2C%20is%20this%20Chicken%20Tikka%20Palace%3F%20I%20came%20across%20your%20restaurant%20in%20Durban%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 31 337 9460">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Kitima|+27 21 790 8004">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Kitima</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 790 8004</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27217908004?text=Hi%2C%20is%20this%20Kitima%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 790 8004">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Moyo|+27 21 762 9585">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Moyo</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 762 9585</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27217629585?text=Hi%2C%20is%20this%20Moyo%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 762 9585">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Suikerbossie|+27 21 790 1450">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Suikerbossie</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 790 1450</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27217901450?text=Hi%2C%20is%20this%20Suikerbossie%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 790 1450">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Papino&#39;s|+27 21 7904077">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Papino&#39;s</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 7904077</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27217904077?text=Hi%2C%20is%20this%20Papino's%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 7904077">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="AfroDeli Eatery|+27 61 405 2558">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">AfroDeli Eatery</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      <div class="addr">41</div>
+      <div class="phone">+27 61 405 2558</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27614052558?text=Hi%2C%20is%20this%20AfroDeli%20Eatery%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 61 405 2558">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Wonderful Gold Leaf|+27 65 242 8761">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Wonderful Gold Leaf</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 65 242 8761</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27652428761?text=Hi%2C%20is%20this%20Wonderful%20Gold%20Leaf%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 65 242 8761">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Colala restaurant &amp; bar|+27 87 808 3177">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Colala restaurant &amp; bar</div>
+      <div class="meta">restaurant · Table View</div>
+      <div class="addr">C/O Marine Circle and Coral road, Table View</div>
+      <div class="phone">+27 87 808 3177</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27878083177?text=Hi%2C%20is%20this%20Colala%20restaurant%20%26%20bar%3F%20I%20came%20across%20your%20restaurant%20in%20Table%20View%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 87 808 3177">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Native Coffee Roasters|+27 21 419 6677">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Native Coffee Roasters</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 419 6677</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214196677?text=Hi%2C%20is%20this%20Native%20Coffee%20Roasters%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 419 6677">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Bodega Ramen|+27 782413285">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Bodega Ramen</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 782413285</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27782413285?text=Hi%2C%20is%20this%20Bodega%20Ramen%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 782413285">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Jewel of East|+27 21 671 3888">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Jewel of East</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      <div class="addr">132 Belvedere Road</div>
+      <div class="phone">+27 21 671 3888</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27216713888?text=Hi%2C%20is%20this%20Jewel%20of%20East%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 671 3888">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Original Sushi &amp; Asian Food|+27677957686;+27679107231">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Original Sushi &amp; Asian Food</div>
+      <div class="meta">restaurant · Cape Town</div>
+      <div class="addr">Hayden Street, Cape Town</div>
+      <div class="phone">+27677957686;+27679107231</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/2767795768627679107231?text=Hi%2C%20is%20this%20Original%20Sushi%20%26%20Asian%20Food%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27677957686;+27679107231">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Make|+27 21 434 8899">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Make</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 434 8899</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214348899?text=Hi%2C%20is%20this%20Make%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 434 8899">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Love thy Neighbour|+27214222770">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Love thy Neighbour</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      <div class="addr">110 Breë Street</div>
+      <div class="phone">+27214222770</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214222770?text=Hi%2C%20is%20this%20Love%20thy%20Neighbour%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27214222770">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Salsify|+27 21 010 6444">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Salsify</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      <div class="addr">Round House Road</div>
+      <div class="phone">+27 21 010 6444</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27210106444?text=Hi%2C%20is%20this%20Salsify%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 010 6444">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Flourish Bistro|+27 61 491 9479">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Flourish Bistro</div>
+      <div class="meta">restaurant · Woodstock</div>
+      <div class="addr">403 Albert Road, Woodstock</div>
+      <div class="phone">+27 61 491 9479</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27614919479?text=Hi%2C%20is%20this%20Flourish%20Bistro%3F%20I%20came%20across%20your%20restaurant%20in%20Woodstock%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 61 491 9479">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Chippies Prego|+27 21 686 0421">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Chippies Prego</div>
+      <div class="meta">restaurant · Rondebosch</div>
+      <div class="addr">Shop 1 Camp Ground Road, Rondebosch</div>
+      <div class="phone">+27 21 686 0421</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27216860421?text=Hi%2C%20is%20this%20Chippies%20Prego%3F%20I%20came%20across%20your%20restaurant%20in%20Rondebosch%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 686 0421">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Louis&#39; on the Block|+27 21 715 6693">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Louis&#39; on the Block</div>
+      <div class="meta">restaurant · Bergvliet</div>
+      <div class="addr">Childrens Way, Bergvliet</div>
+      <div class="phone">+27 21 715 6693</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27217156693?text=Hi%2C%20is%20this%20Louis'%20on%20the%20Block%3F%20I%20came%20across%20your%20restaurant%20in%20Bergvliet%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 715 6693">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Redemption Burgers|+27 79 476 3648">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Redemption Burgers</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 79 476 3648</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27794763648?text=Hi%2C%20is%20this%20Redemption%20Burgers%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 79 476 3648">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Best of Asia|+27 21 439 4918">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Best of Asia</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      <div class="addr">105 Main Road</div>
+      <div class="phone">+27 21 439 4918</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214394918?text=Hi%2C%20is%20this%20Best%20of%20Asia%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 439 4918">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Kind Regards|+27732452317">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Kind Regards</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27732452317</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27732452317?text=Hi%2C%20is%20this%20Kind%20Regards%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27732452317">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Mitico|+27 21 422 2260">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Mitico</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      <div class="addr">71 Kloof Street</div>
+      <div class="phone">+27 21 422 2260</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214222260?text=Hi%2C%20is%20this%20Mitico%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 422 2260">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Cafe Manhattan|+27 214216666">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Cafe Manhattan</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      <div class="addr">74 Waterkant Street</div>
+      <div class="phone">+27 214216666</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214216666?text=Hi%2C%20is%20this%20Cafe%20Manhattan%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 214216666">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Bizerca Bistro|+27214238888">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Bizerca Bistro</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      <div class="addr">98 Shortmarket Street</div>
+      <div class="phone">+27214238888</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214238888?text=Hi%2C%20is%20this%20Bizerca%20Bistro%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27214238888">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Baia Seafood|+27 21 421 0935">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Baia Seafood</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 421 0935</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214210935?text=Hi%2C%20is%20this%20Baia%20Seafood%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 421 0935">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Rock Sushi Thai|+27 21 712 2921">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Rock Sushi Thai</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 712 2921</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27217122921?text=Hi%2C%20is%20this%20Rock%20Sushi%20Thai%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 712 2921">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Col&#39;Cacchio|+27 21 712 3190">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Col&#39;Cacchio</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 712 3190</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27217123190?text=Hi%2C%20is%20this%20Col'Cacchio%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 712 3190">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Marcos African Place|+27214235412">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Marcos African Place</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      <div class="addr">15 Rose Street</div>
+      <div class="phone">+27214235412</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214235412?text=Hi%2C%20is%20this%20Marcos%20African%20Place%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27214235412">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Karibu|+27214217005">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Karibu</div>
+      <div class="meta">restaurant · Cape Town</div>
+      <div class="addr">Cape Town</div>
+      <div class="phone">+27214217005</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214217005?text=Hi%2C%20is%20this%20Karibu%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27214217005">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Bella Italia|+27 21 434 9056">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Bella Italia</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 434 9056</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214349056?text=Hi%2C%20is%20this%20Bella%20Italia%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 434 9056">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Shin Thai|+27 21 439 7190">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Shin Thai</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      <div class="addr">Regent Road</div>
+      <div class="phone">+27 21 439 7190</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214397190?text=Hi%2C%20is%20this%20Shin%20Thai%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 439 7190">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Aris Souvlaki|+27 21 439 6683">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Aris Souvlaki</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      <div class="addr">Regent Road</div>
+      <div class="phone">+27 21 439 6683</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214396683?text=Hi%2C%20is%20this%20Aris%20Souvlaki%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 439 6683">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Fisherman&#39;s Catch|+27 21 555 2961">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Fisherman&#39;s Catch</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 555 2961</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27215552961?text=Hi%2C%20is%20this%20Fisherman's%20Catch%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 555 2961">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Tiger&#39;s Milk|+27 21 286 9305">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Tiger&#39;s Milk</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      <div class="addr">Blaauwberg Road</div>
+      <div class="phone">+27 21 286 9305</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27212869305?text=Hi%2C%20is%20this%20Tiger's%20Milk%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 286 9305">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Jerry&#39;s Burger Bar|+27 21 556 0852">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Jerry&#39;s Burger Bar</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 556 0852</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27215560852?text=Hi%2C%20is%20this%20Jerry's%20Burger%20Bar%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 556 0852">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Maria&#39;s|+27 21 461 3333">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Maria&#39;s</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      <div class="addr">Barnet Street</div>
+      <div class="phone">+27 21 461 3333</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214613333?text=Hi%2C%20is%20this%20Maria's%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 461 3333">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Marika&#39;s|+27 21 465 2727">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Marika&#39;s</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 465 2727</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214652727?text=Hi%2C%20is%20this%20Marika's%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 465 2727">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Korean Soju Restaurant|+27 214340771">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Korean Soju Restaurant</div>
+      <div class="meta">restaurant · Cape Town</div>
+      <div class="addr">265A Main Road, Cape Town</div>
+      <div class="phone">+27 214340771</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214340771?text=Hi%2C%20is%20this%20Korean%20Soju%20Restaurant%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 214340771">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Mario&#39;s|+27 21 439 6644">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Mario&#39;s</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 439 6644</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214396644?text=Hi%2C%20is%20this%20Mario's%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 439 6644">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Primi Piatti|+27 21 557 9770">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Primi Piatti</div>
+      <div class="meta">restaurant · Table View</div>
+      <div class="addr">14 Beach Boulevard, Table View</div>
+      <div class="phone">+27 21 557 9770</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27215579770?text=Hi%2C%20is%20this%20Primi%20Piatti%3F%20I%20came%20across%20your%20restaurant%20in%20Table%20View%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 557 9770">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Pure|+27 21 7919393">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Pure</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 7919393</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27217919393?text=Hi%2C%20is%20this%20Pure%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 7919393">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Casareccio|+27 21 7900200">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Casareccio</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 7900200</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27217900200?text=Hi%2C%20is%20this%20Casareccio%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 7900200">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="The Lookout Deck|+27 21 7900900">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">The Lookout Deck</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 7900900</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27217900900?text=Hi%2C%20is%20this%20The%20Lookout%20Deck%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 7900900">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Chapman&#39;s Peak Beach Hotel|+27 21 7901036">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Chapman&#39;s Peak Beach Hotel</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 7901036</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27217901036?text=Hi%2C%20is%20this%20Chapman's%20Peak%20Beach%20Hotel%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 7901036">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Deli Delish|+27 21 7905324">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Deli Delish</div>
+      <div class="meta">restaurant · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 7905324</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27217905324?text=Hi%2C%20is%20this%20Deli%20Delish%3F%20I%20came%20across%20your%20restaurant%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 7905324">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Brasserie de Paris Pretoria|+27 124603583">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Brasserie de Paris Pretoria</div>
+      <div class="meta">restaurant · Pretoria</div>
+      <div class="addr">381 Aries Street, Pretoria</div>
+      <div class="phone">+27 124603583</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27124603583?text=Hi%2C%20is%20this%20Brasserie%20de%20Paris%20Pretoria%3F%20I%20came%20across%20your%20restaurant%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 124603583">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Seoul Garden Korean food|+27 81593441">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Seoul Garden Korean food</div>
+      <div class="meta">restaurant · Pretoria, South Africa</div>
+      <div class="addr">254 Thatchers Fields</div>
+      <div class="phone">+27 81593441</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/2781593441?text=Hi%2C%20is%20this%20Seoul%20Garden%20Korean%20food%3F%20I%20came%20across%20your%20restaurant%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 81593441">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Tuks Monate|+27 124202119">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Tuks Monate</div>
+      <div class="meta">restaurant · Pretoria</div>
+      <div class="addr">Koedoespoort 456-Jr, Pretoria</div>
+      <div class="phone">+27 124202119</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27124202119?text=Hi%2C%20is%20this%20Tuks%20Monate%3F%20I%20came%20across%20your%20restaurant%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 124202119">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Ouma Isie&#39;s Tea Garden and Restaurant|+27767166845">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Ouma Isie&#39;s Tea Garden and Restaurant</div>
+      <div class="meta">restaurant · Irene, Centurion</div>
+      <div class="addr">Plot 53 Jan Smuts Avenue, Irene, Centurion</div>
+      <div class="phone">+27767166845</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27767166845?text=Hi%2C%20is%20this%20Ouma%20Isie's%20Tea%20Garden%20and%20Restaurant%3F%20I%20came%20across%20your%20restaurant%20in%20Irene%2C%20Centurion%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27767166845">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="A Taste Of Africa|+27127702057">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">A Taste Of Africa</div>
+      <div class="meta">restaurant · Hatfield</div>
+      <div class="addr">1077 Arcadia Street, Hatfield</div>
+      <div class="phone">+27127702057</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27127702057?text=Hi%2C%20is%20this%20A%20Taste%20Of%20Africa%3F%20I%20came%20across%20your%20restaurant%20in%20Hatfield%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27127702057">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Crawdaddy&#39;s Good Food - Centurion|+27 12 644 2000">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Crawdaddy&#39;s Good Food - Centurion</div>
+      <div class="meta">restaurant · Pretoria, South Africa</div>
+      
+      <div class="phone">+27 12 644 2000</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27126442000?text=Hi%2C%20is%20this%20Crawdaddy's%20Good%20Food%20-%20Centurion%3F%20I%20came%20across%20your%20restaurant%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 644 2000">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Rietvlei Coffee Shop|+27 825004422">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Rietvlei Coffee Shop</div>
+      <div class="meta">restaurant · Pretoria, South Africa</div>
+      
+      <div class="phone">+27 825004422</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27825004422?text=Hi%2C%20is%20this%20Rietvlei%20Coffee%20Shop%3F%20I%20came%20across%20your%20restaurant%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 825004422">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Oscan|+27 127703185">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Oscan</div>
+      <div class="meta">restaurant · Pretoria, South Africa</div>
+      
+      <div class="phone">+27 127703185</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27127703185?text=Hi%2C%20is%20this%20Oscan%3F%20I%20came%20across%20your%20restaurant%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 127703185">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Yamazaki Sushi Restaurant|+27 12 346 0081">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Yamazaki Sushi Restaurant</div>
+      <div class="meta">restaurant · Pretoria, South Africa</div>
+      
+      <div class="phone">+27 12 346 0081</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27123460081?text=Hi%2C%20is%20this%20Yamazaki%20Sushi%20Restaurant%3F%20I%20came%20across%20your%20restaurant%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 346 0081">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Pure Cafe|+27 12 4203883">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Pure Cafe</div>
+      <div class="meta">restaurant · Pretoria, South Africa</div>
+      
+      <div class="phone">+27 12 4203883</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27124203883?text=Hi%2C%20is%20this%20Pure%20Cafe%3F%20I%20came%20across%20your%20restaurant%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 4203883">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="The Deck @ Irene Dairy Farm|+27 126672326">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">The Deck @ Irene Dairy Farm</div>
+      <div class="meta">restaurant · Pretoria, South Africa</div>
+      
+      <div class="phone">+27 126672326</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27126672326?text=Hi%2C%20is%20this%20The%20Deck%20%40%20Irene%20Dairy%20Farm%3F%20I%20came%20across%20your%20restaurant%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 126672326">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Ocean Basket|+27 12 345 4244">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Ocean Basket</div>
+      <div class="meta">restaurant · Pretoria, South Africa</div>
+      
+      <div class="phone">+27 12 345 4244</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27123454244?text=Hi%2C%20is%20this%20Ocean%20Basket%3F%20I%20came%20across%20your%20restaurant%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 345 4244">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="rosewood trails|+27 81 656 6014">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">rosewood trails</div>
+      <div class="meta">restaurant · Pretoria, South Africa</div>
+      <div class="addr">wekker</div>
+      <div class="phone">+27 81 656 6014</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27816566014?text=Hi%2C%20is%20this%20rosewood%20trails%3F%20I%20came%20across%20your%20restaurant%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 81 656 6014">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Trademarx Restaurant and Bar|+27 12 803 6122">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Trademarx Restaurant and Bar</div>
+      <div class="meta">restaurant · Pretoria</div>
+      <div class="addr">461 Kirkness Street, Pretoria</div>
+      <div class="phone">+27 12 803 6122</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27128036122?text=Hi%2C%20is%20this%20Trademarx%20Restaurant%20and%20Bar%3F%20I%20came%20across%20your%20restaurant%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 803 6122">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Kung-Fu Kitchen|+27 12 346 2293">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Kung-Fu Kitchen</div>
+      <div class="meta">restaurant · Pretoria</div>
+      <div class="addr">273 Middel Street, Pretoria</div>
+      <div class="phone">+27 12 346 2293</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27123462293?text=Hi%2C%20is%20this%20Kung-Fu%20Kitchen%3F%20I%20came%20across%20your%20restaurant%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 346 2293">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Casa da Brooklyn|+27 12 346 4600">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Casa da Brooklyn</div>
+      <div class="meta">restaurant · Pretoria, South Africa</div>
+      <div class="addr">299 Dey Street</div>
+      <div class="phone">+27 12 346 4600</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27123464600?text=Hi%2C%20is%20this%20Casa%20da%20Brooklyn%3F%20I%20came%20across%20your%20restaurant%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 346 4600">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Asia House|+27 82 743 5020">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Asia House</div>
+      <div class="meta">restaurant · Pretoria, South Africa</div>
+      
+      <div class="phone">+27 82 743 5020</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27827435020?text=Hi%2C%20is%20this%20Asia%20House%3F%20I%20came%20across%20your%20restaurant%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 82 743 5020">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Calco Café &amp; Pizzeria|+27 87 094 4964">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Calco Café &amp; Pizzeria</div>
+      <div class="meta">restaurant · Johannesburg, South Africa</div>
+      
+      <div class="phone">+27 87 094 4964</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27870944964?text=Hi%2C%20is%20this%20Calco%20Caf%C3%A9%20%26%20Pizzeria%3F%20I%20came%20across%20your%20restaurant%20in%20Johannesburg%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 87 094 4964">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Fame and Grill|+27 100234954">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Fame and Grill</div>
+      <div class="meta">restaurant · eastleigh</div>
+      <div class="addr">2 North Road, eastleigh</div>
+      <div class="phone">+27 100234954</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27100234954?text=Hi%2C%20is%20this%20Fame%20and%20Grill%3F%20I%20came%20across%20your%20restaurant%20in%20eastleigh%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 100234954">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Hao Ke Lai|+27748776666">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Hao Ke Lai</div>
+      <div class="meta">restaurant · Johannesburg</div>
+      <div class="addr">Linden Lanes 3rd Avenue, Johannesburg</div>
+      <div class="phone">+27748776666</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27748776666?text=Hi%2C%20is%20this%20Hao%20Ke%20Lai%3F%20I%20came%20across%20your%20restaurant%20in%20Johannesburg%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27748776666">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="The Jozi Vegan|+27 65 560 1817">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">The Jozi Vegan</div>
+      <div class="meta">restaurant · Johannesburg, South Africa</div>
+      <div class="addr">2 5th Avenue</div>
+      <div class="phone">+27 65 560 1817</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27655601817?text=Hi%2C%20is%20this%20The%20Jozi%20Vegan%3F%20I%20came%20across%20your%20restaurant%20in%20Johannesburg%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 65 560 1817">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="New Delhi Dharbar|+27 11 883 4407">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">New Delhi Dharbar</div>
+      <div class="meta">restaurant · Johannesburg, South Africa</div>
+      <div class="addr">138 11th Street</div>
+      <div class="phone">+27 11 883 4407</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27118834407?text=Hi%2C%20is%20this%20New%20Delhi%20Dharbar%3F%20I%20came%20across%20your%20restaurant%20in%20Johannesburg%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 11 883 4407">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Pomodorino Trattoria|+27 72 126 3383">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Pomodorino Trattoria</div>
+      <div class="meta">restaurant · Johannesburg, South Africa</div>
+      <div class="addr">130 11th Street</div>
+      <div class="phone">+27 72 126 3383</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27721263383?text=Hi%2C%20is%20this%20Pomodorino%20Trattoria%3F%20I%20came%20across%20your%20restaurant%20in%20Johannesburg%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 72 126 3383">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Daisy Dumplings House|+27 84 847 5435">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Daisy Dumplings House</div>
+      <div class="meta">restaurant · Johannesburg, South Africa</div>
+      
+      <div class="phone">+27 84 847 5435</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27848475435?text=Hi%2C%20is%20this%20Daisy%20Dumplings%20House%3F%20I%20came%20across%20your%20restaurant%20in%20Johannesburg%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 84 847 5435">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="AA Sushi|+27 76 070 8553">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">AA Sushi</div>
+      <div class="meta">restaurant · Johannesburg, South Africa</div>
+      
+      <div class="phone">+27 76 070 8553</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27760708553?text=Hi%2C%20is%20this%20AA%20Sushi%3F%20I%20came%20across%20your%20restaurant%20in%20Johannesburg%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 76 070 8553">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Kung Fu Kitchen|+27102220723">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Kung Fu Kitchen</div>
+      <div class="meta">restaurant · Roodepoort</div>
+      <div class="addr">Blueberry Street, Roodepoort</div>
+      <div class="phone">+27102220723</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27102220723?text=Hi%2C%20is%20this%20Kung%20Fu%20Kitchen%3F%20I%20came%20across%20your%20restaurant%20in%20Roodepoort%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27102220723">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Bistro Vine|+27 11 327 4558">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Bistro Vine</div>
+      <div class="meta">restaurant · Parkhurst</div>
+      <div class="addr">4th Avenue, Parkhurst</div>
+      <div class="phone">+27 11 327 4558</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27113274558?text=Hi%2C%20is%20this%20Bistro%20Vine%3F%20I%20came%20across%20your%20restaurant%20in%20Parkhurst%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 11 327 4558">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Pata Pata|+27 11 069 8172">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Pata Pata</div>
+      <div class="meta">restaurant · Johannesburg, South Africa</div>
+      <div class="addr">286 Fox Street</div>
+      <div class="phone">+27 11 069 8172</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27110698172?text=Hi%2C%20is%20this%20Pata%20Pata%3F%20I%20came%20across%20your%20restaurant%20in%20Johannesburg%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 11 069 8172">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="J&#39;s Diner|+27 11 781 3401">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">J&#39;s Diner</div>
+      <div class="meta">restaurant · Johannesburg, South Africa</div>
+      <div class="addr">64 Conrad Drive</div>
+      <div class="phone">+27 11 781 3401</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27117813401?text=Hi%2C%20is%20this%20J's%20Diner%3F%20I%20came%20across%20your%20restaurant%20in%20Johannesburg%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 11 781 3401">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Kamiya Sushi|+27 84 365 6666; +27 63 065 3783">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Kamiya Sushi</div>
+      <div class="meta">restaurant · Johannesburg, South Africa</div>
+      
+      <div class="phone">+27 84 365 6666; +27 63 065 3783</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/2784365666627630653783?text=Hi%2C%20is%20this%20Kamiya%20Sushi%3F%20I%20came%20across%20your%20restaurant%20in%20Johannesburg%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 84 365 6666; +27 63 065 3783">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Shaam|+27 74 895 5555">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Shaam</div>
+      <div class="meta">restaurant · Johannesburg, South Africa</div>
+      
+      <div class="phone">+27 74 895 5555</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27748955555?text=Hi%2C%20is%20this%20Shaam%3F%20I%20came%20across%20your%20restaurant%20in%20Johannesburg%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 74 895 5555">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Eat At LM Illovo|+2711 268 6624">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Eat At LM Illovo</div>
+      <div class="meta">restaurant · Johannesburg</div>
+      <div class="addr">33 Rudd Road, Johannesburg</div>
+      <div class="phone">+2711 268 6624</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27112686624?text=Hi%2C%20is%20this%20Eat%20At%20LM%20Illovo%3F%20I%20came%20across%20your%20restaurant%20in%20Johannesburg%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20restaurants%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+2711 268 6624">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Scheepers Plumbers|+27 82 687 5225">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Scheepers Plumbers</div>
+      <div class="meta">plumber · Pretoria</div>
+      <div class="addr">150 Haak En Steek Avenue, Pretoria</div>
+      <div class="phone">+27 82 687 5225</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27826875225?text=Hi%2C%20is%20this%20Scheepers%20Plumbers%3F%20I%20came%20across%20your%20business%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20businesss%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 82 687 5225">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Dunlop Epress|+27 31 563 0749">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Dunlop Epress</div>
+      <div class="meta">car repair · Durban</div>
+      <div class="addr">714 Chris Hani Road, Durban</div>
+      <div class="phone">+27 31 563 0749</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27315630749?text=Hi%2C%20is%20this%20Dunlop%20Epress%3F%20I%20came%20across%20your%20garage%20in%20Durban%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20garages%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 31 563 0749">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Midas|+27 315662900">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Midas</div>
+      <div class="meta">car repair · Durban, South Africa</div>
+      <div class="addr">Meridian Drive</div>
+      <div class="phone">+27 315662900</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27315662900?text=Hi%2C%20is%20this%20Midas%3F%20I%20came%20across%20your%20garage%20in%20Durban%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20garages%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 315662900">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Autozone|+27 313371165">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Autozone</div>
+      <div class="meta">car repair · Durban, South Africa</div>
+      
+      <div class="phone">+27 313371165</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27313371165?text=Hi%2C%20is%20this%20Autozone%3F%20I%20came%20across%20your%20garage%20in%20Durban%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20garages%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 313371165">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="MZELE PLUMBERS|+27 83 666 9837">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">MZELE PLUMBERS</div>
+      <div class="meta">plumber · Durban</div>
+      <div class="addr">5394 Prince Mcwayizeni Drive, Durban</div>
+      <div class="phone">+27 83 666 9837</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27836669837?text=Hi%2C%20is%20this%20MZELE%20PLUMBERS%3F%20I%20came%20across%20your%20business%20in%20Durban%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20businesss%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 83 666 9837">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Arnies 24hr Breakdown Service|+27 213931680">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Arnies 24hr Breakdown Service</div>
+      <div class="meta">car repair · Strandfontein</div>
+      <div class="addr">9 Salmon Way, Strandfontein</div>
+      <div class="phone">+27 213931680</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27213931680?text=Hi%2C%20is%20this%20Arnies%2024hr%20Breakdown%20Service%3F%20I%20came%20across%20your%20garage%20in%20Strandfontein%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20garages%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 213931680">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="The Auto Point Mechanical &amp; Auto Electrical|+27 21 5518549">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">The Auto Point Mechanical &amp; Auto Electrical</div>
+      <div class="meta">car repair · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 5518549</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27215518549?text=Hi%2C%20is%20this%20The%20Auto%20Point%20Mechanical%20%26%20Auto%20Electrical%3F%20I%20came%20across%20your%20garage%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20garages%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 5518549">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Steve&#39;S Auto Clinic|+27 21 5521003">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Steve&#39;S Auto Clinic</div>
+      <div class="meta">car repair · Cape Town, South Africa</div>
+      <div class="addr">450 Koeberg Road</div>
+      <div class="phone">+27 21 5521003</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27215521003?text=Hi%2C%20is%20this%20Steve'S%20Auto%20Clinic%3F%20I%20came%20across%20your%20garage%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20garages%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 5521003">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Independent 4x4|+27125481335">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Independent 4x4</div>
+      <div class="meta">car repair · Pretoria, South Africa</div>
+      
+      <div class="phone">+27125481335</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27125481335?text=Hi%2C%20is%20this%20Independent%204x4%3F%20I%20came%20across%20your%20garage%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20garages%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27125481335">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Jet Radio Car Airconditioners|+27 123611888">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Jet Radio Car Airconditioners</div>
+      <div class="meta">car repair · Pretoria</div>
+      <div class="addr">482 Sapper&#39;s Contour, Pretoria</div>
+      <div class="phone">+27 123611888</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27123611888?text=Hi%2C%20is%20this%20Jet%20Radio%20Car%20Airconditioners%3F%20I%20came%20across%20your%20garage%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20garages%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 123611888">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Panelbeaters|+2772191256">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Panelbeaters</div>
+      <div class="meta">car repair · Pretoria, South Africa</div>
+      <div class="addr">371 Koos de la Rey Street</div>
+      <div class="phone">+2772191256</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/2772191256?text=Hi%2C%20is%20this%20Panelbeaters%3F%20I%20came%20across%20your%20garage%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20garages%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+2772191256">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Motor Service Panel Beating|+27 72 382 9624">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Motor Service Panel Beating</div>
+      <div class="meta">car repair · Pretoria</div>
+      <div class="addr">Hendriks Street, Pretoria</div>
+      <div class="phone">+27 72 382 9624</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27723829624?text=Hi%2C%20is%20this%20Motor%20Service%20Panel%20Beating%3F%20I%20came%20across%20your%20garage%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20garages%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 72 382 9624">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Unique Auto Centre|+27 12 771 3912">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Unique Auto Centre</div>
+      <div class="meta">car repair · Pretoria, South Africa</div>
+      
+      <div class="phone">+27 12 771 3912</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27127713912?text=Hi%2C%20is%20this%20Unique%20Auto%20Centre%3F%20I%20came%20across%20your%20garage%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20garages%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 771 3912">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Harry&#39;s auto services|+27 126643260">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Harry&#39;s auto services</div>
+      <div class="meta">car repair · Pretoria</div>
+      <div class="addr">18 Botha Avenue, Pretoria</div>
+      <div class="phone">+27 126643260</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27126643260?text=Hi%2C%20is%20this%20Harry's%20auto%20services%3F%20I%20came%20across%20your%20garage%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20garages%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 126643260">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Scotties Auto|+27 12 6646869">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Scotties Auto</div>
+      <div class="meta">car repair · Pretoria, South Africa</div>
+      
+      <div class="phone">+27 12 6646869</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27126646869?text=Hi%2C%20is%20this%20Scotties%20Auto%3F%20I%20came%20across%20your%20garage%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20garages%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 6646869">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Dr Hayley James|+27 21 393 5976">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Dr Hayley James</div>
+      <div class="meta">dentist · Cape Town, South Africa</div>
+      <div class="addr">65-A Dennegeur Avenue</div>
+      <div class="phone">+27 21 393 5976</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27213935976?text=Hi%2C%20is%20this%20Dr%20Hayley%20James%3F%20I%20came%20across%20your%20practice%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 393 5976">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Drs Moses and Kathree|+27 21 393 1652">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Drs Moses and Kathree</div>
+      <div class="meta">dentist · Cape Town, South Africa</div>
+      <div class="addr">4 Casino Road</div>
+      <div class="phone">+27 21 393 1652</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27213931652?text=Hi%2C%20is%20this%20Drs%20Moses%20and%20Kathree%3F%20I%20came%20across%20your%20practice%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 393 1652">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Woodstock Dental Studio|+27 21 486 9248">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Woodstock Dental Studio</div>
+      <div class="meta">dentist · Cape Town, South Africa</div>
+      
+      <div class="phone">+27 21 486 9248</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214869248?text=Hi%2C%20is%20this%20Woodstock%20Dental%20Studio%3F%20I%20came%20across%20your%20practice%20in%20Cape%20Town%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 486 9248">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Ms Mmathapelo Tshabangu|+27 21 441 9700">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Ms Mmathapelo Tshabangu</div>
+      <div class="meta">dentist · Pretoria</div>
+      <div class="addr">449 W.F. Nkomo Street, Pretoria</div>
+      <div class="phone">+27 21 441 9700</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27214419700?text=Hi%2C%20is%20this%20Ms%20Mmathapelo%20Tshabangu%3F%20I%20came%20across%20your%20practice%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 21 441 9700">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Immelman J L|+27 12 460 8635">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Immelman J L</div>
+      <div class="meta">dentist · Pretoria</div>
+      <div class="addr">1148 Brooklyn Medpark Jan Shoba Street, Pretoria</div>
+      <div class="phone">+27 12 460 8635</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27124608635?text=Hi%2C%20is%20this%20Immelman%20J%20L%3F%20I%20came%20across%20your%20practice%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 460 8635">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Tandarts|+27123330227">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Tandarts</div>
+      <div class="meta">dentist · Pretoria</div>
+      <div class="addr">Nico Smith Street, Pretoria</div>
+      <div class="phone">+27123330227</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27123330227?text=Hi%2C%20is%20this%20Tandarts%3F%20I%20came%20across%20your%20practice%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27123330227">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Dental care|+27 12 546 6863">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Dental care</div>
+      <div class="meta">clinic · Pretoria</div>
+      <div class="addr">244 Ben Viljoen Street, Pretoria</div>
+      <div class="phone">+27 12 546 6863</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27125466863?text=Hi%2C%20is%20this%20Dental%20care%3F%20I%20came%20across%20your%20business%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20businesss%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 546 6863">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Joubert F J|+27 12 322 1380">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Joubert F J</div>
+      <div class="meta">dentist · Pretoria, South Africa</div>
+      
+      <div class="phone">+27 12 322 1380</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27123221380?text=Hi%2C%20is%20this%20Joubert%20F%20J%3F%20I%20came%20across%20your%20practice%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 322 1380">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Dr Daan Zeeman &amp; Ass|+27 12 664 5815">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Dr Daan Zeeman &amp; Ass</div>
+      <div class="meta">dentist · Centurion</div>
+      <div class="addr">200 Potgieter Road, Centurion</div>
+      <div class="phone">+27 12 664 5815</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27126645815?text=Hi%2C%20is%20this%20Dr%20Daan%20Zeeman%20%26%20Ass%3F%20I%20came%20across%20your%20practice%20in%20Centurion%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 664 5815">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Dr Wayne Horne|+27 12 653 1813">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Dr Wayne Horne</div>
+      <div class="meta">dentist · Pretoria, South Africa</div>
+      
+      <div class="phone">+27 12 653 1813</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27126531813?text=Hi%2C%20is%20this%20Dr%20Wayne%20Horne%3F%20I%20came%20across%20your%20practice%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 653 1813">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Lara Van Der Merwe|+27 12 460 4958">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Lara Van Der Merwe</div>
+      <div class="meta">dentist · Pretoria</div>
+      <div class="addr">294 Milner Street, Pretoria</div>
+      <div class="phone">+27 12 460 4958</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27124604958?text=Hi%2C%20is%20this%20Lara%20Van%20Der%20Merwe%3F%20I%20came%20across%20your%20practice%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 460 4958">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Nova Dental Care Southlake Centre, First Floor|+27 126637644">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Nova Dental Care Southlake Centre, First Floor</div>
+      <div class="meta">dentist · Centurion</div>
+      <div class="addr">1025 Lenchen Avenue North, Centurion</div>
+      <div class="phone">+27 126637644</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27126637644?text=Hi%2C%20is%20this%20Nova%20Dental%20Care%20Southlake%20Centre%2C%20First%20Floor%3F%20I%20came%20across%20your%20practice%20in%20Centurion%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 126637644">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Oral and Dental Hospital.|+27 12 319 2370">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Oral and Dental Hospital.</div>
+      <div class="meta">dentist · Pretoria</div>
+      <div class="addr">Steve Biko Road, Pretoria</div>
+      <div class="phone">+27 12 319 2370</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27123192370?text=Hi%2C%20is%20this%20Oral%20and%20Dental%20Hospital.%3F%20I%20came%20across%20your%20practice%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 319 2370">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Tandarts|+27 12 333 0227">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Tandarts</div>
+      <div class="meta">dentist · Pretoria</div>
+      <div class="addr">962 Nico Smith Street, Pretoria</div>
+      <div class="phone">+27 12 333 0227</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27123330227?text=Hi%2C%20is%20this%20Tandarts%3F%20I%20came%20across%20your%20practice%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 333 0227">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Groenkloof Dentist|+27 12 346 3588">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Groenkloof Dentist</div>
+      <div class="meta">dentist · Pretoria</div>
+      <div class="addr">George Storrar Drive, Pretoria</div>
+      <div class="phone">+27 12 346 3588</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27123463588?text=Hi%2C%20is%20this%20Groenkloof%20Dentist%3F%20I%20came%20across%20your%20practice%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 346 3588">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="CrossFit Uncontained II|+27 72 461 5710">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">CrossFit Uncontained II</div>
+      <div class="meta">fitness centre · Pretoria</div>
+      <div class="addr">636 Ella Street, Pretoria</div>
+      <div class="phone">+27 72 461 5710</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27724615710?text=Hi%2C%20is%20this%20CrossFit%20Uncontained%20II%3F%20I%20came%20across%20your%20gym%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20gyms%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 72 461 5710">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="VO2 MAX Fitness Centre|+27123451241">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">VO2 MAX Fitness Centre</div>
+      <div class="meta">fitness centre · Pretoria, South Africa</div>
+      <div class="addr">Jochem Street</div>
+      <div class="phone">+27123451241</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27123451241?text=Hi%2C%20is%20this%20VO2%20MAX%20Fitness%20Centre%3F%20I%20came%20across%20your%20gym%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20gyms%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27123451241">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="GotYourSix Crossfit|+27732623182">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">GotYourSix Crossfit</div>
+      <div class="meta">fitness centre · Pretoria</div>
+      <div class="addr">275 Bali Avenue, Pretoria</div>
+      <div class="phone">+27732623182</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27732623182?text=Hi%2C%20is%20this%20GotYourSix%20Crossfit%3F%20I%20came%20across%20your%20gym%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20gyms%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27732623182">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Planet Fitness|+27 12 030 0501">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Planet Fitness</div>
+      <div class="meta">fitness centre · Pretoria</div>
+      <div class="addr">221 Thys Street, Pretoria</div>
+      <div class="phone">+27 12 030 0501</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27120300501?text=Hi%2C%20is%20this%20Planet%20Fitness%3F%20I%20came%20across%20your%20gym%20in%20Pretoria%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20gyms%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 12 030 0501">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Dynoboost gym|+27 827591287">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Dynoboost gym</div>
+      <div class="meta">fitness centre · Pretoria, South Africa</div>
+      
+      <div class="phone">+27 827591287</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27827591287?text=Hi%2C%20is%20this%20Dynoboost%20gym%3F%20I%20came%20across%20your%20gym%20in%20Pretoria%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20gyms%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 827591287">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="The Glens Dental &amp; Medical Centre|+27 11 682 3205">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">The Glens Dental &amp; Medical Centre</div>
+      <div class="meta">dentist · The Glens, Johannesburg</div>
+      <div class="addr">18 Sneeuberg Street, The Glens, Johannesburg</div>
+      <div class="phone">+27 11 682 3205</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27116823205?text=Hi%2C%20is%20this%20The%20Glens%20Dental%20%26%20Medical%20Centre%3F%20I%20came%20across%20your%20practice%20in%20The%20Glens%2C%20Johannesburg%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 11 682 3205">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Dr. Filipovski Dental Surgeon|+27 112682142">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Dr. Filipovski Dental Surgeon</div>
+      <div class="meta">dentist · Johannesburg, South Africa</div>
+      <div class="addr">7th Avenue</div>
+      <div class="phone">+27 112682142</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27112682142?text=Hi%2C%20is%20this%20Dr.%20Filipovski%20Dental%20Surgeon%3F%20I%20came%20across%20your%20practice%20in%20Johannesburg%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 112682142">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Dental Practice|+27 11 682 3205">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Dental Practice</div>
+      <div class="meta">dentist · The Glens, Johannesburg</div>
+      <div class="addr">18 Sneeuberg Street, The Glens, Johannesburg</div>
+      <div class="phone">+27 11 682 3205</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27116823205?text=Hi%2C%20is%20this%20Dental%20Practice%3F%20I%20came%20across%20your%20practice%20in%20The%20Glens%2C%20Johannesburg%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 11 682 3205">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="High Point Dental Clinic|+27 117919013">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">High Point Dental Clinic</div>
+      <div class="meta">dentist · Johannesburg, South Africa</div>
+      <div class="addr">Claim Street</div>
+      <div class="phone">+27 117919013</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27117919013?text=Hi%2C%20is%20this%20High%20Point%20Dental%20Clinic%3F%20I%20came%20across%20your%20practice%20in%20Johannesburg%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20practices%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 117919013">Call</a>
+      </div>
+    </li>
+<li class="card" data-id="Youtopia|+27 61 588 1834">
+      <label class="done"><input type="checkbox"> done</label>
+      <div class="name">Youtopia</div>
+      <div class="meta">fitness centre · Johannesburg, South Africa</div>
+      <div class="addr">The Ridge Shopping Center</div>
+      <div class="phone">+27 61 588 1834</div>
+      <div class="actions">
+        <a class="wa" href="https://wa.me/27615881834?text=Hi%2C%20is%20this%20Youtopia%3F%20I%20came%20across%20your%20gym%20in%20Johannesburg%2C%20South%20Africa%20and%20noticed%20you%20don't%20have%20a%20website%20yet.%20I'm%20Gianveer%20from%20Convertly%20and%20I%20build%20sites%20for%20gyms%20from%20R299%2Fmonth%2C%20hosting%20and%20updates%20included.%20If%20you%20have%2030%20seconds%2C%20try%20the%20chat%20at%20the%20bottom%20of%20convertly.co.za.%20It's%20the%20same%20AI%20assistant%20that%20can%20answer%20your%20customers%20on%20WhatsApp%20day%20and%20night.%20Happy%20to%20show%20you%20what%20your%20site%20could%20look%20like%2C%20no%20pressure%20either%20way." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="call" href="tel:+27 61 588 1834">Call</a>
+      </div>
+    </li>
+</ul>
+<script>
+  // Remember which ones you've contacted, on this device.
+  var KEY = 'convertly-wa-done';
+  var done = new Set(JSON.parse(localStorage.getItem(KEY) || '[]'));
+  document.querySelectorAll('.card[data-id]').forEach(function (card) {
+    var id = card.getAttribute('data-id');
+    var cb = card.querySelector('input');
+    if (done.has(id)) { cb.checked = true; card.classList.add('done'); }
+    cb.addEventListener('change', function () {
+      if (cb.checked) { done.add(id); card.classList.add('done'); }
+      else { done.delete(id); card.classList.remove('done'); }
+      localStorage.setItem(KEY, JSON.stringify(Array.from(done)));
+    });
+  });
+  // Daily 10: promote the first 10 uncontacted WhatsApp-able leads to the top.
+  // List order is already beachhead-first, so these are the best 10 to send today.
+  var todayList = document.getElementById('today');
+  var picked = 0;
+  document.querySelectorAll('#rest .card[data-id]').forEach(function (card) {
+    if (picked >= 10) return;
+    if (card.classList.contains('done')) return;
+    if (!card.querySelector('a.wa')) return; // needs a WhatsApp-able number
+    todayList.appendChild(card);
+    picked++;
+  });
+</script>
+</body></html>
